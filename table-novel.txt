@@ -1,0 +1,28 @@
+create table mall (
+id int primary key auto_increment,
+title text,
+subtitle text,
+pptlist text,
+piclist text,
+price double,
+announcement text,
+ilemlist text,
+address text
+);
+
+create table user (
+username varchar(20) primary key,
+passwd text
+);
+
+insert into user values ('admin', 'admin');
+insert into mall (title, subtitle, pptlist, piclist, price, announcement, ilemlist, address) values (
+'【新街口地区】蜀留香九宫格火锅',
+'仅售89元！价值100元的代金券1张，全场通用，可叠加使用，可免费使用包间，提供免费WiFi。',
+'huoguoppt1.jpg,huoguoppt2.jpg',
+'huoguo1.jpg,huoguo2.jpg,huoguo3.jpg,huoguo4.jpg,huoguo5.jpg,huoguo6.jpg,huoguo7.jpg,huoguo8.jpg,huoguo9.jpg,huoguo10.jpg,huoguo11.jpg,huoguo12.jpg,huoguo13.jpg,huoguo14.jpg,huoguo15.jpg',
+89,
+'有效期->2014.1.9 至 2016.10.24（周末、法定节假日通用）;;使用时间->10:30-次日02:00;;预约提醒->无需预约，消费高峰时可能需要等位;;限购限用提醒->可叠加使用，不兑现、不找零;;包间->可免费使用包间;;堂食外带->仅限堂食，不提供餐前外带，餐毕未吃完可打包，打包费详情咨询商家;;温馨提示->团购用户只能享受的优惠为美团的套餐团购，酒水饮料等问题，请致电商家咨询，以商家反馈为准;;商家服务->提供免费WiFi',
+'table->套餐内容\单价\数量/规格\小计;;line->代金券\￥100\1张\￥100;;full->价值：￥100，团购价：￥89!;;text->店内人均消费参考价：50元;;text->适用范围：全场通用;;text->店内部分菜品价格参考：;;text->火焰牛蛙（48.00元/份）;;text->五花肉（22.00元/份）;;text->梅林午餐肉（32.00元/份）;;text->草原羊羔肉（28.00元/份）',
+'蜀留香九宫格火锅位于新街口石鼓路与王府大街交叉路口处，石鼓路49号美食汇3楼'
+);

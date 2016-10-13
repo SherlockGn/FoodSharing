@@ -1,0 +1,7 @@
+com\gth\foodshare\serviceimpl\MallServiceImpl.class
+com\gth\foodshare\service\MallService.class
+com\gth\foodshare\dao\UserMapper.class
+com\gth\foodshare\dao\MallMapper.class
+com\gth\foodshare\model\User.class
+com\gth\foodshare\model\Mall.class
+com\gth\foodshare\controller\MallController.class

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gth.foodshare.dao.MallMapper" >
+  <resultMap id="BaseResultMap" type="com.gth.foodshare.model.Mall" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="price" property="price" jdbcType="DOUBLE" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.gth.foodshare.model.Mall" extends="BaseResultMap" >
+    <result column="title" property="title" jdbcType="LONGVARCHAR" />
+    <result column="subtitle" property="subtitle" jdbcType="LONGVARCHAR" />
+    <result column="pptlist" property="pptlist" jdbcType="LONGVARCHAR" />
+    <result column="piclist" property="piclist" jdbcType="LONGVARCHAR" />
+    <result column="announcement" property="announcement" jdbcType="LONGVARCHAR" />
+    <result column="ilemlist" property="ilemlist" jdbcType="LONGVARCHAR" />
+    <result column="address" property="address" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, price
+  </sql>
+  <sql id="Blob_Column_List" >
+    title, subtitle, pptlist, piclist, announcement, ilemlist, address
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from mall
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from mall
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.gth.foodshare.model.Mall" >
+    insert into mall (id, price, title, 
+      subtitle, pptlist, piclist, 
+      announcement, ilemlist, address
+      )
+    values (#{id,jdbcType=INTEGER}, #{price,jdbcType=DOUBLE}, #{title,jdbcType=LONGVARCHAR}, 
+      #{subtitle,jdbcType=LONGVARCHAR}, #{pptlist,jdbcType=LONGVARCHAR}, #{piclist,jdbcType=LONGVARCHAR}, 
+      #{announcement,jdbcType=LONGVARCHAR}, #{ilemlist,jdbcType=LONGVARCHAR}, #{address,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gth.foodshare.model.Mall" >
+    insert into mall
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="subtitle != null" >
+        subtitle,
+      </if>
+      <if test="pptlist != null" >
+        pptlist,
+      </if>
+      <if test="piclist != null" >
+        piclist,
+      </if>
+      <if test="announcement != null" >
+        announcement,
+      </if>
+      <if test="ilemlist != null" >
+        ilemlist,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="subtitle != null" >
+        #{subtitle,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="pptlist != null" >
+        #{pptlist,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="piclist != null" >
+        #{piclist,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="announcement != null" >
+        #{announcement,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="ilemlist != null" >
+        #{ilemlist,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gth.foodshare.model.Mall" >
+    update mall
+    <set >
+      <if test="price != null" >
+        price = #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="subtitle != null" >
+        subtitle = #{subtitle,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="pptlist != null" >
+        pptlist = #{pptlist,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="piclist != null" >
+        piclist = #{piclist,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="announcement != null" >
+        announcement = #{announcement,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="ilemlist != null" >
+        ilemlist = #{ilemlist,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.gth.foodshare.model.Mall" >
+    update mall
+    set price = #{price,jdbcType=DOUBLE},
+      title = #{title,jdbcType=LONGVARCHAR},
+      subtitle = #{subtitle,jdbcType=LONGVARCHAR},
+      pptlist = #{pptlist,jdbcType=LONGVARCHAR},
+      piclist = #{piclist,jdbcType=LONGVARCHAR},
+      announcement = #{announcement,jdbcType=LONGVARCHAR},
+      ilemlist = #{ilemlist,jdbcType=LONGVARCHAR},
+      address = #{address,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gth.foodshare.model.Mall" >
+    update mall
+    set price = #{price,jdbcType=DOUBLE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="findAll" resultMap="ResultMapWithBLOBs" resultType="java.util.List">
+    select * from mall
+  </select>
+</mapper>
